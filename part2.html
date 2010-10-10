@@ -1,0 +1,51 @@
+<html><body><script>
+function isPrime(num){
+	var factor=0;
+	for(i=1; i<num; i++){
+		if(num%i==0)
+			factor=i
+	}
+	if(factor==1)
+		return true
+	else
+		return false
+}
+var fib=0;
+var given=0;
+while(given==0 || given==null || given=="")
+	given=parseInt(prompt('Find the sum of the prime divisors of the number one higher than the first fibonacci number greater than:', '227000'))
+var x1=1;
+var x2=0;
+var holder=0;
+while(fib<given){
+	holder=x1
+	x1=x2+x1
+	x2=holder
+	fib=x1
+}
+
+
+holder=x1
+x1=x2+x1
+x2=holder
+fib=x1
+while(!isPrime(fib)){
+	holder=x1
+	x1=x2+x1
+	x2=holder
+	fib=x1
+}
+var x=fib+1
+var list=[]
+for(i=0; i<x; i++){
+		if(x%i==0){
+			if(isPrime(i))
+				list.push(i)
+		}
+}
+var answer=0;
+for(i=0; i<list.length; i++)
+	answer+=list[i]
+console.log("answer:" + answer)
+alert("answer:" + answer)
+</script></body></html>
